@@ -1,0 +1,30 @@
+name: Linter
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.3.0
+      - name: Setup Python
+        uses: actions/setup-python@v4.5.0
+      - name: Install with pip
+        uses: BSFishy/pip-action@v1
+        with:
+          packages: |
+            ansible
+            jinja2
+            ansible-lint
+            yamllint
+      - run: "yamllint -s -f auto --list-files ."
+        working-directory: ${{ github.workspace }}
+      - run: "ansible-lint -v --force-color --profile production"
+        working-directory: ${{ github.workspace }}

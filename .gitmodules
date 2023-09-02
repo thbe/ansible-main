@@ -1,0 +1,13 @@
+# GIT modules
+[submodule "playbooks/generic"]
+	path = playbooks/generic
+	url = https://github.com/thbe/ansible-playbook-generic.git
+[submodule "playbooks/rhel"]
+	path = playbooks/rhel
+	url = https://github.com/thbe/ansible-playbook-rhel.git
+[submodule "playbooks/sap"]
+	path = playbooks/sap
+	url = https://github.com/thbe/ansible-playbook-sap.git
+[submodule "playbooks/security"]
+	path = playbooks/security
+	url = https://github.com/thbe/ansible-playbook-security.git

@@ -1,0 +1,13 @@
+---
+# Required roles and collections
+roles:
+  - name: thbe.common
+  - name: thbe.platform
+  - name: thbe.rhel
+  - name: thbe.security
+  - name: thbe.baseline
+  - name: thbe.sap
+
+collections:
+  - name: ansible.posix
+  - name: community.general

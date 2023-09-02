@@ -1,0 +1,30 @@
+---
+# Site playbook
+- name: Ansible playbooks for all nodes
+  hosts: all
+  debugger: on_failed
+  gather_facts: true
+  tasks:
+    - name: Role Common (DevOps preparation)
+      ansible.builtin.include_role:
+        name: thbe.common
+    - name: Role Operating System (repositories, packages, ...)
+      ansible.builtin.include_role:
+        name: thbe.rhel
+    - name: Role Platform (driver, hardware, ...)
+      ansible.builtin.include_role:
+        name: thbe.platform
+    - name: Role Security (tools, profiles, settings, ...)
+      ansible.builtin.include_role:
+        name: thbe.security
+    - name: Role Baseline (user, configuration, ...)
+      ansible.builtin.include_role:
+        name: thbe.baseline
+
+- name: Ansible playbooks for SAP nodes
+  hosts: sap
+  gather_facts: true
+  tasks:
+    - name: Role SAP (settings, packages, profiles, ...)
+      ansible.builtin.include_role:
+        name: thbe.sap
